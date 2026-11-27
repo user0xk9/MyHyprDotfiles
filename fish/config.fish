@@ -1,3 +1,4 @@
+
 if status is-interactive
     set -g fish_greeting
 
@@ -13,10 +14,17 @@ if status is-interactive
 
     # clear показывает fastfetch заново
     function clear
+        argparse n/nofetch -- $argv
+        or return
         command clear
-        sleep 0.05
-        fastfetch
+        if not set -q _flag_nofetch
+            sleep 0.05
+            fastfetch
+        end
     end
+        
+        
+    
     bind \cl 'commandline -r clear; commandline -f execute'
 
     # алиасы
