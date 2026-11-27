@@ -1,0 +1,125 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "margin": "8 12 0 12",
+  "spacing": 8,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "mpris"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "cpu",
+    "memory",
+    "backlight",
+    "pulseaudio",
+    "group/conn",
+    "battery",
+    "custom/notification",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "active": "", "default": "", "urgent": "" },
+    "persistent-workspaces": { "*": 5 },
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "max-length": 45,
+    "separate-outputs": true,
+    "rewrite": { "": "Рабочий стол" }
+  },
+
+  "mpris": {
+    "format": "{player_icon} {title} · {artist}",
+    "format-paused": "󰏤 {title}",
+    "player-icons": { "default": "󰎆", "firefox": "󰈹" },
+    "max-length": 40,
+    "on-click": "playerctl play-pause"
+  },
+
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃭  {:%d %B %Y}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "hyprland/language": {
+    "format": "󰌌 {short}",
+    "format-en": "EN",
+    "format-ru": "RU"
+  },
+
+  "cpu": { "format": "󰻠 {usage}%", "interval": 3, "on-click": "kitty btop" },
+  "memory": { "format": "󰍛 {percentage}%", "interval": 5, "on-click": "kitty btop" },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 mute",
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5
+  },
+
+  "group/conn": {
+    "orientation": "inherit",
+    "modules": ["network", "bluetooth"]
+  },
+
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format-wifi": "{essid} · {signalStrength}% · {ipaddr}",
+    "tooltip-format-ethernet": "{ifname} · {ipaddr}",
+    "tooltip-format-disconnected": "Нет сети",
+    "on-click": "kitty --class float-term -e nmtui"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "Bluetooth: {status}",
+    "tooltip-format-connected": "{device_alias}",
+    "on-click": "blueman-manager"
+  },
+
+  "battery": {
+    "states": { "warning": 25, "critical": 12 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": ["󰁺", "󰁼", "󰁿", "󰂁", "󰁹"]
+  },
+
+  "custom/notification": {
+    "exec": "swaync-client -swb",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪑"
+    },
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/power": { "format": "⏻", "tooltip": false, "on-click": "wlogout" },
+
+  "tray": { "icon-size": 16, "spacing": 8 }
+}
