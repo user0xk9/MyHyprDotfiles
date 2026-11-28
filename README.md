@@ -90,7 +90,9 @@ cp -r ~/MyHyprDotfiles/{hypr,waybar,rofi,swaync,wlogout,kitty,fastfetch,fish,bto
 **3. Обои**
 
 Положи картинки в `~/Pictures/wallpapers` и укажи свою в `~/.config/hypr/hyprpaper.conf`
-(параметр `path`). Обои в репозиторий не входят.
+(параметр `path`). Мои обои взяты из
+[orangci/walls-catppuccin-mocha](https://github.com/orangci/walls-catppuccin-mocha),
+в репозиторий они не входят.
 
 **4. Оболочка**
 
@@ -128,5 +130,6 @@ waybar/  rofi/  swaync/  wlogout/  kitty/  fastfetch/  fish/  btop/  gtk-3.0/  g
 
 ## 🙏 Благодарности
 
-[Catppuccin](https://github.com/catppuccin) за палитру, команда
-[Hyprland](https://github.com/hyprwm/Hyprland) и авторы всех используемых утилит.
+- Палитра [Catppuccin](https://github.com/catppuccin)
+- Обои из подборки [orangci/walls-catppuccin-mocha](https://github.com/orangci/walls-catppuccin-mocha)
+- [Hyprland](https://github.com/hyprwm/Hyprland) и авторы используемых утилит
