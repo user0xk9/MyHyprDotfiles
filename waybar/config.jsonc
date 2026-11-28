@@ -51,8 +51,8 @@
     "modules": ["cpu", "memory"]
   },
 
-  "cpu": { "format": "󰻠 {usage}%", "interval": 3, "on-click": "kitty btop" },
-  "memory": { "format": "󰍛 {percentage}%", "interval": 5, "on-click": "kitty btop" },
+  "cpu": { "format": "󰻠 {usage}%", "interval": 3, "on-click": "kitty -o font_size=9 btop" },
+  "memory": { "format": "󰍛 {percentage}%", "interval": 5, "on-click": "kitty -o font_size=9 btop" },
 
   "backlight": {
     "format": "{icon} {percent}%",

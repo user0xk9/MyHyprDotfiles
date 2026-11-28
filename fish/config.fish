@@ -65,3 +65,8 @@ function gpu-nvidia
     sudo envycontrol -s nvidia
     echo "Режим NVIDIA (dGPU) установлен. Перезагрузите ноутбук (reboot)."
 end
+
+function btop
+    command kitty -o font_size=9 btop $argv &
+    disown
+end
