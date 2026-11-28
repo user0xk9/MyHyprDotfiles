@@ -70,3 +70,8 @@ function btop
     command kitty -o font_size=9 btop $argv &
     disown
 end
+function rebar
+    pkill waybar
+    sleep 0.3
+    setsid -f waybar >/dev/null 2>&1
+end
