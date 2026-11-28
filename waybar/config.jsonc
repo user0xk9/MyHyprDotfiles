@@ -9,13 +9,12 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    "hyprland/language",
-    "cpu",
-    "memory",
+    "group/sys",
     "backlight",
     "pulseaudio",
     "group/conn",
     "battery",
+    "idle_inhibitor",
     "custom/notification",
     "custom/power"
   ],
@@ -47,10 +46,9 @@
     "tooltip-format": "<tt>{calendar}</tt>"
   },
 
-  "hyprland/language": {
-    "format": "󰌌 {short}",
-    "format-en": "EN",
-    "format-ru": "RU"
+  "group/sys": {
+    "orientation": "inherit",
+    "modules": ["cpu", "memory"]
   },
 
   "cpu": { "format": "󰻠 {usage}%", "interval": 3, "on-click": "kitty btop" },
@@ -62,7 +60,7 @@
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
   },
-  
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 mute",
@@ -102,6 +100,13 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-icons": ["󰁺", "󰁼", "󰁿", "󰂁", "󰁹"]
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": { "activated": "󰅶", "deactivated": "󰾪" },
+    "tooltip-format-activated": "Экран не гаснет",
+    "tooltip-format-deactivated": "Обычный режим"
   },
 
   "custom/notification": {

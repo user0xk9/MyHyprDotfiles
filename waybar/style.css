@@ -9,8 +9,8 @@
 
 window#waybar { background: transparent; color: @text; }
 
-#workspaces, #window, #mpris, #clock, #tray, #language, #cpu, #memory,
-#backlight, #pulseaudio, #conn, #battery, #custom-notification, #custom-power {
+#workspaces, #window, #mpris, #clock, #tray, #sys, #backlight,
+#pulseaudio, #conn, #battery, #idle_inhibitor, #custom-notification, #custom-power {
   background: alpha(@base, 0.88);
   border: 1px solid alpha(@accent, 0.2);
   border-radius: 12px;
@@ -26,13 +26,21 @@ window#waybar { background: transparent; color: @text; }
 #window { color: @subtext; }
 #mpris { color: @mauve; }
 #clock { color: @accent; font-weight: bold; }
-#language { color: @peach; }
-#cpu { color: @blue; }
-#memory { color: @mauve; }
 #backlight { color: @yellow; }
 #pulseaudio { color: @sky; }
 #pulseaudio.muted { color: @muted; }
 
+/* процессор + память: одна таблетка */
+#sys { padding: 0 6px; }
+#cpu, #memory {
+  background: none;
+  border: none;
+  padding: 0 6px;
+}
+#cpu { color: @blue; }
+#memory { color: @mauve; }
+
+/* сеть + bluetooth: одна тихая таблетка */
 #conn { padding: 0 6px; }
 #network, #bluetooth {
   background: none;
@@ -47,6 +55,9 @@ window#waybar { background: transparent; color: @text; }
 #battery.charging { color: @teal; }
 #battery.warning { color: @yellow; }
 #battery.critical { color: @red; }
+
+#idle_inhibitor { color: @muted; }
+#idle_inhibitor.activated { color: @peach; }
 
 #custom-notification { color: @peach; }
 #custom-power { color: @red; }
